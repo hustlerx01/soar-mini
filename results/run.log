@@ -1,0 +1,7 @@
+A-1001   verdict=malicious  expected=malicious  score=100 actions=['block_ioc_on_firewall:pending_approval', 'isolate_host:pending_approval', 'open_ticket_P2:executed(simulated)']
+A-1002   verdict=malicious  expected=malicious  score= 66 actions=['block_ioc_on_firewall:pending_approval', 'isolate_host:pending_approval', 'open_ticket_P2:executed(simulated)']
+A-1003   verdict=benign     expected=benign     score=  0 actions=['close_as_false_positive:executed(simulated)']
+A-1004   verdict=malicious  expected=malicious  score= 60 actions=['isolate_host:pending_approval', 'open_ticket_P2:executed(simulated)']
+A-1005   verdict=suspicious expected=suspicious score= 27 actions=['open_ticket_P3:executed(simulated)', 'add_to_watchlist:executed(simulated)']
+A-1006   verdict=benign     expected=benign     score=  0 actions=['close_as_false_positive:executed(simulated)']
+verdict accuracy 6/6; API lookups 27; mode=offline-fixtures

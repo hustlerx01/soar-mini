@@ -1,0 +1,301 @@
+[
+  {
+    "alert_id": "A-1001",
+    "title": "EDR: outbound to known C2",
+    "playbook": "ioc_triage_v1",
+    "iocs": {
+      "198.51.100.66": {
+        "kind": "ipv4",
+        "score": 100,
+        "why": [
+          "VT 14/90 (trojan.qakbot)",
+          "AbuseIPDB 100% / 812 reports",
+          "URLhaus listed (23 urls, tags ['exe', 'qakbot'])"
+        ],
+        "intel": {
+          "virustotal": {
+            "malicious": 14,
+            "total": 90,
+            "ratio": 0.156,
+            "label": "trojan.qakbot"
+          },
+          "abuseipdb": {
+            "confidence": 100,
+            "reports": 812,
+            "country": "RU",
+            "isp": "Example ISP"
+          },
+          "urlhaus": {
+            "listed": true,
+            "url_count": 23,
+            "tags": [
+              "exe",
+              "qakbot"
+            ]
+          }
+        }
+      }
+    },
+    "actions": [
+      {
+        "action": "block_ioc_on_firewall",
+        "target": "198.51.100.66",
+        "status": "pending_approval"
+      },
+      {
+        "action": "isolate_host",
+        "target": "WS-FIN-07",
+        "status": "pending_approval"
+      },
+      {
+        "action": "open_ticket_P2",
+        "target": "A-1001",
+        "status": "executed(simulated)"
+      }
+    ],
+    "audit": [
+      "extracted 1 external IOCs; internal hosts ['10.20.1.7']"
+    ],
+    "max_ioc_score": 100,
+    "verdict": "malicious",
+    "seconds": 0.0,
+    "lookups": 3
+  },
+  {
+    "alert_id": "A-1002",
+    "title": "Phishing report from user",
+    "playbook": "ioc_triage_v1",
+    "iocs": {
+      "invoice-update.top": {
+        "kind": "domain",
+        "score": 66,
+        "why": [
+          "VT 9/90 (phishing)",
+          "URLhaus listed (4 urls, tags ['phishing'])"
+        ],
+        "intel": {
+          "virustotal": {
+            "malicious": 9,
+            "total": 90,
+            "ratio": 0.1,
+            "label": "phishing"
+          },
+          "urlhaus": {
+            "listed": true,
+            "url_count": 4,
+            "tags": [
+              "phishing"
+            ]
+          }
+        }
+      },
+      "https://invoice-update.top/pay": {
+        "kind": "url",
+        "score": 0,
+        "why": [],
+        "intel": {}
+      },
+      "https://www.microsoft.com/logo.png": {
+        "kind": "url",
+        "score": 0,
+        "why": [],
+        "intel": {}
+      }
+    },
+    "actions": [
+      {
+        "action": "block_ioc_on_firewall",
+        "target": "invoice-update.top",
+        "status": "pending_approval"
+      },
+      {
+        "action": "isolate_host",
+        "target": "WS-HR-02",
+        "status": "pending_approval"
+      },
+      {
+        "action": "open_ticket_P2",
+        "target": "A-1002",
+        "status": "executed(simulated)"
+      }
+    ],
+    "audit": [
+      "extracted 3 external IOCs; internal hosts []"
+    ],
+    "max_ioc_score": 66,
+    "verdict": "malicious",
+    "seconds": 0.0,
+    "lookups": 12
+  },
+  {
+    "alert_id": "A-1003",
+    "title": "Firewall: inbound probe",
+    "playbook": "ioc_triage_v1",
+    "iocs": {
+      "203.0.113.15": {
+        "kind": "ipv4",
+        "score": 0,
+        "why": [],
+        "intel": {
+          "virustotal": {
+            "malicious": 1,
+            "total": 90,
+            "ratio": 0.011,
+            "label": null
+          },
+          "abuseipdb": {
+            "confidence": 8,
+            "reports": 2,
+            "country": "US",
+            "isp": "Example ISP"
+          }
+        }
+      }
+    },
+    "actions": [
+      {
+        "action": "close_as_false_positive",
+        "target": "A-1003",
+        "status": "executed(simulated)"
+      }
+    ],
+    "audit": [
+      "extracted 1 external IOCs; internal hosts ['10.0.0.4']"
+    ],
+    "max_ioc_score": 0,
+    "verdict": "benign",
+    "seconds": 0.0,
+    "lookups": 15
+  },
+  {
+    "alert_id": "A-1004",
+    "title": "AV: file quarantined",
+    "playbook": "ioc_triage_v1",
+    "iocs": {
+      "9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08": {
+        "kind": "sha256",
+        "score": 60,
+        "why": [
+          "VT 41/72 (ransomware.lockbit)"
+        ],
+        "intel": {
+          "virustotal": {
+            "malicious": 41,
+            "total": 72,
+            "ratio": 0.569,
+            "label": "ransomware.lockbit"
+          }
+        }
+      }
+    },
+    "actions": [
+      {
+        "action": "isolate_host",
+        "target": "WS-ENG-11",
+        "status": "pending_approval"
+      },
+      {
+        "action": "open_ticket_P2",
+        "target": "A-1004",
+        "status": "executed(simulated)"
+      }
+    ],
+    "audit": [
+      "extracted 1 external IOCs; internal hosts []"
+    ],
+    "max_ioc_score": 60,
+    "verdict": "malicious",
+    "seconds": 0.0,
+    "lookups": 18
+  },
+  {
+    "alert_id": "A-1005",
+    "title": "WAF: repeated 404s",
+    "playbook": "ioc_triage_v1",
+    "iocs": {
+      "203.0.113.77": {
+        "kind": "ipv4",
+        "score": 27,
+        "why": [
+          "AbuseIPDB 45% / 30 reports"
+        ],
+        "intel": {
+          "virustotal": {
+            "malicious": 0,
+            "total": 90,
+            "ratio": 0.0,
+            "label": null
+          },
+          "abuseipdb": {
+            "confidence": 45,
+            "reports": 30,
+            "country": "NL",
+            "isp": "Example ISP"
+          }
+        }
+      },
+      "cdn.example-assets.com": {
+        "kind": "domain",
+        "score": 0,
+        "why": [],
+        "intel": {
+          "virustotal": {
+            "malicious": 0,
+            "total": 90,
+            "ratio": 0.0,
+            "label": null
+          },
+          "urlhaus": {
+            "listed": false
+          }
+        }
+      }
+    },
+    "actions": [
+      {
+        "action": "open_ticket_P3",
+        "target": "A-1005",
+        "status": "executed(simulated)"
+      },
+      {
+        "action": "add_to_watchlist",
+        "target": "203.0.113.77",
+        "status": "executed(simulated)"
+      }
+    ],
+    "audit": [
+      "extracted 2 external IOCs; internal hosts []"
+    ],
+    "max_ioc_score": 27,
+    "verdict": "suspicious",
+    "seconds": 0.0,
+    "lookups": 24
+  },
+  {
+    "alert_id": "A-1006",
+    "title": "DNS: new domain lookup",
+    "playbook": "ioc_triage_v1",
+    "iocs": {
+      "unseen-domain-xyz.online": {
+        "kind": "domain",
+        "score": 0,
+        "why": [],
+        "intel": {}
+      }
+    },
+    "actions": [
+      {
+        "action": "close_as_false_positive",
+        "target": "A-1006",
+        "status": "executed(simulated)"
+      }
+    ],
+    "audit": [
+      "extracted 1 external IOCs; internal hosts []"
+    ],
+    "max_ioc_score": 0,
+    "verdict": "benign",
+    "seconds": 0.0,
+    "lookups": 27
+  }
+]
