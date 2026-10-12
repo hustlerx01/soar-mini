@@ -1,0 +1,22 @@
+name: ioc_triage_v1
+description: Enrich IOCs from an alert, score, decide, contain (simulated).
+enrich:
+  providers: [virustotal, abuseipdb, urlhaus]
+  kinds: [ipv4, domain, url, sha256, md5]
+scoring:
+  vt_min_engines: 3        # fewer than 3 engines = noise
+  abuse_min_conf: 25
+  abuse_weight: 0.6      # v1 used 0.4: a 45%-confidence scanner scored 18 and was auto-closed
+decide:
+  malicious: 60
+  suspicious: 25
+actions:
+  malicious:
+    - {type: block_ioc_on_firewall, per_ioc: true, kinds: [ipv4, domain], destructive: true}
+    - {type: isolate_host, field: host, destructive: true}
+    - {type: open_ticket_P2, field: id}
+  suspicious:
+    - {type: open_ticket_P3, field: id}
+    - {type: add_to_watchlist, per_ioc: true}
+  benign:
+    - {type: close_as_false_positive, field: id}

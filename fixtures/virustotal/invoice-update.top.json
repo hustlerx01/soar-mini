@@ -1,0 +1,17 @@
+{
+ "data": {
+  "id": "invoice-update.top",
+  "type": "x",
+  "attributes": {
+   "last_analysis_stats": {
+    "malicious": 9,
+    "suspicious": 0,
+    "undetected": 81,
+    "harmless": 0
+   },
+   "popular_threat_classification": {
+    "suggested_threat_label": "phishing"
+   }
+  }
+ }
+}

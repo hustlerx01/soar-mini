@@ -1,0 +1,13 @@
+{
+ "query_status": "ok",
+ "host": "invoice-update.top",
+ "url_count": "4",
+ "urls": [
+  {
+   "url": "http://invoice-update.top/a",
+   "tags": [
+    "phishing"
+   ]
+  }
+ ]
+}

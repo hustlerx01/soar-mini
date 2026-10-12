@@ -1,0 +1,14 @@
+{
+ "data": {
+  "id": "203.0.113.77",
+  "type": "x",
+  "attributes": {
+   "last_analysis_stats": {
+    "malicious": 0,
+    "suspicious": 0,
+    "undetected": 90,
+    "harmless": 0
+   }
+  }
+ }
+}

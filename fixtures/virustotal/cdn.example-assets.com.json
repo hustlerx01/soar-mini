@@ -1,0 +1,14 @@
+{
+ "data": {
+  "id": "cdn.example-assets.com",
+  "type": "x",
+  "attributes": {
+   "last_analysis_stats": {
+    "malicious": 0,
+    "suspicious": 0,
+    "undetected": 90,
+    "harmless": 0
+   }
+  }
+ }
+}

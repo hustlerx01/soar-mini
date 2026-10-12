@@ -1,0 +1,9 @@
+{
+ "data": {
+  "ipAddress": "203.0.113.77",
+  "abuseConfidenceScore": 45,
+  "totalReports": 30,
+  "countryCode": "NL",
+  "isp": "Example ISP"
+ }
+}

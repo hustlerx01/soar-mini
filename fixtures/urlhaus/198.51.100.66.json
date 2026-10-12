@@ -1,0 +1,14 @@
+{
+ "query_status": "ok",
+ "host": "198.51.100.66",
+ "url_count": "23",
+ "urls": [
+  {
+   "url": "http://198.51.100.66/a",
+   "tags": [
+    "qakbot",
+    "exe"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,17 @@
+{
+ "data": {
+  "id": "198.51.100.66",
+  "type": "x",
+  "attributes": {
+   "last_analysis_stats": {
+    "malicious": 14,
+    "suspicious": 0,
+    "undetected": 76,
+    "harmless": 0
+   },
+   "popular_threat_classification": {
+    "suggested_threat_label": "trojan.qakbot"
+   }
+  }
+ }
+}

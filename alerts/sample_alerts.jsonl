@@ -1,0 +1,6 @@
+{"id": "A-1001", "title": "EDR: outbound to known C2", "host": "WS-FIN-07", "expected": "malicious", "details": "powershell.exe connected to 198.51.100.66:443 from 10.20.1.7"}
+{"id": "A-1002", "title": "Phishing report from user", "host": "WS-HR-02", "expected": "malicious", "details": "User reported mail with link hxxps://invoice-update[.]top/pay and logo from https://www.microsoft.com/logo.png"}
+{"id": "A-1003", "title": "Firewall: inbound probe", "host": "FW-EDGE", "expected": "benign", "details": "Deny tcp 203.0.113.15:51234 -> 10.0.0.4:3389"}
+{"id": "A-1004", "title": "AV: file quarantined", "host": "WS-ENG-11", "expected": "malicious", "details": "sha256 9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08 in C:\\Users\\a\\Downloads"}
+{"id": "A-1005", "title": "WAF: repeated 404s", "host": "WEB-01", "expected": "suspicious", "details": "203.0.113.77 requested 300 paths in 2 min; referrer cdn.example-assets.com"}
+{"id": "A-1006", "title": "DNS: new domain lookup", "host": "WS-OPS-03", "expected": "benign", "details": "query for unseen-domain-xyz.online, no intel yet"}
